@@ -1,5 +1,5 @@
 const express = require('express')
-const mongoose = require('mongoose')
+const mongoose = require('mongoose') 
 const bodyparser = require('body-parser')
 require('dotenv').config()
 
@@ -14,8 +14,10 @@ app.use(bodyparser.json())
 //Conexion a la base de datos
 
 //Creacion e Importacion de rutas
+const authRoutes = require('./routes/auth')
 
 //Ruta del middleware
+app.use('/api/user', authRoutes)
 
 //Ruta Raiz
 app.get('/', (req, res) => {
